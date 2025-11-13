@@ -1,4 +1,4 @@
-package fishing;
+package fishing.control;
 
 //SceneManager.java
 
@@ -7,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import fishing.model.Player;
+import main.MainApp;
 
 import java.io.IOException;
 
@@ -33,7 +34,7 @@ public class SceneManager {
          Scene scene = new Scene(root, MainApp.WINDOW_WIDTH, MainApp.WINDOW_HEIGHT);
          
          // Load CSS stylesheet
-         String css = SceneManager.class.getResource("/css/style.css").toExternalForm();
+         String css = SceneManager.class.getResource("/css/styles.css").toExternalForm();
          scene.getStylesheets().add(css);
          
          primaryStage.setScene(scene);

@@ -2,7 +2,6 @@ package fishing.control;
 
 //WelcomeController.jav
 
-import fishing.SceneManager;
 import fishing.model.Player;
 import util.DataManager;
 import javafx.fxml.FXML;
@@ -10,42 +9,53 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-import java.io.File;
+import javax.annotation.processing.Generated;
+import java.io.InputStream;
+
 
 /**
 * Controller for the Welcome (Login/Register) screen
 */
 public class Welcome {
- 
+
+    @FXML
  private ImageView gifBackground;
+    @FXML
  private TabPane tabPane;
  
  // Login fields
+    @FXML
  private TextField loginUsernameField;
+    @FXML
  private PasswordField loginPasswordField;
+    @FXML
   private Label loginErrorLabel;
  
  // Register fields
+    @FXML
  private TextField registerUsernameField;
+    @FXML
   private PasswordField registerPasswordField;
+    @FXML
  private PasswordField confirmPasswordField;
+    @FXML
   private Label registerErrorLabel;
  
-
+@FXML
  public void initialize() {
-     // Load animated GIF background
+     // Load GIF from resources
      try {
-         File gifFile = new File("assets/backgrounds/login_animated.gif");
-         if (gifFile.exists()) {
-             Image gifImage = new Image(gifFile.toURI().toString());
-             gifBackground.setImage(gifImage);
+         InputStream stream = getClass().getResourceAsStream("/assets/background/fishing_dock_login.gif");
+         if (stream == null) {
+             System.err.println("GIF background not found!");
          } else {
-             System.err.println("GIF background not found: " + gifFile.getAbsolutePath());
+             Image gifImage = new Image(stream);
+             gifBackground.setImage(gifImage);
          }
      } catch (Exception e) {
          System.err.println("Error loading GIF: " + e.getMessage());
      }
-     
+
      // Clear error labels initially
      loginErrorLabel.setText("");
      registerErrorLabel.setText("");
@@ -60,6 +70,7 @@ public class Welcome {
  /**
   * Handle login button click
   */
+ @FXML
  private void handleLogin() {
      String username = loginUsernameField.getText().trim();
      String password = loginPasswordField.getText();

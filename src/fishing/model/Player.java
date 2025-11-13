@@ -47,7 +47,7 @@ public class Player implements Serializable {
      this.baitInventory = new BaitInventory();
      
      // Starting equipment
-     this.equippedRod = Rod.getBambooRod(); / Starter rod
+     this.equippedRod = Rod.getBambooRod(); // Starter rod
      this.inventory.addItem(this.equippedRod);
      
      // Starting baits (20 Basic Worms)

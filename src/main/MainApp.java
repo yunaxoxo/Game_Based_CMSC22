@@ -1,7 +1,8 @@
-package fishing;
+package main;
 
 //MainApp.java
 
+import fishing.control.SceneManager;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
